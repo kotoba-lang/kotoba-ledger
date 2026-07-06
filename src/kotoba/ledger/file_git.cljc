@@ -9,8 +9,10 @@
 
 #?(:clj
 (defn append-line!
-  "Append `event` as one JSONL line to `path` (created if missing)."
+  "Append `event` as one JSONL line to `path` (file and parent directories
+  created if missing)."
   [path event]
+  (io/make-parents (io/file (str path)))
   (with-open [w (io/writer (str path) :append true)]
     (.write w (str (ledger/->line event) "\n")))
   event))

@@ -40,3 +40,13 @@
             out (slurp (.getInputStream proc))]
         (.waitFor proc)
         (is (re-find #"record decision p1" out))))))
+
+(deftest append-line-creates-missing-parent-directories
+  (testing "a path under a not-yet-existing subdirectory (e.g. data/proposals.jsonl
+            in a fresh checkout) must not throw FileNotFoundException"
+    (let [dir (temp-git-repo!)
+          path (io/file dir "data/proposals.jsonl")
+          event (ledger/proposal-event {:ts 1 :issue-id "i1" :proposal-id "p1"
+                                         :kind :gmail/archive :risk :read-only :status :proposed})]
+      (fg/append-line! path event)
+      (is (= [event] (fg/read-events path))))))
