@@ -1,4 +1,4 @@
-# kotoba-ledger-clj
+# kotoba-ledger
 
 A generic append-only **issue / proposal / review / run ledger**: pure JSONL
 event construction + last-line-wins projections, plus two pluggable I/O
