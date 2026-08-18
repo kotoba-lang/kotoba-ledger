@@ -9,7 +9,7 @@
   `kotoba.ledger.file-git` / `kotoba.ledger.kotobase` -- this namespace never
   touches disk or a network."
   (:require [clojure.string :as str]
-            #?(:clj  [cheshire.core :as json]
+            #?(:clj  [json.compat :as json]
                :cljs [clojure.walk :as walk])))
 
 ;; ---------- JSON encode/decode (host-independent) ----------
