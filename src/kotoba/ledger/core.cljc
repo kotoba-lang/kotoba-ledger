@@ -8,7 +8,7 @@
   I/O (file append, git commit, kotobase transact) lives in
   `kotoba.ledger.file-git` / `kotoba.ledger.kotobase` -- this namespace never
   touches disk or a network."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             #?(:clj  [json.compat :as json]
                :cljs [clojure.walk :as walk])))
 
