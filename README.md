@@ -65,5 +65,5 @@ two purpose-typed packages rather than one grab-bag library.
 ## Tests
 
 ```sh
-clojure -M:test
+kbb -M:test
 ```
