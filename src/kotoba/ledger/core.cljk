@@ -10,7 +10,7 @@
   touches disk or a network."
   (:require [kotoba.lang.text :as str]
             #?(:clj  [json.compat :as json]
-               :cljs [clojure.walk :as walk])))
+               :cljs [kotoba.lang.coll :as walk])))
 
 ;; ---------- JSON encode/decode (host-independent) ----------
 
