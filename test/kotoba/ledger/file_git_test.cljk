@@ -1,13 +1,11 @@
 (ns kotoba.ledger.file-git-test
   (:require [kotoba.test :refer [deftest is testing]]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [kotoba.ledger.core :as ledger]
-            [kotoba.ledger.file-git :as fg])
-  (:import [java.nio.file Files]
-           [java.nio.file.attribute FileAttribute]))
+            [kotoba.ledger.file-git :as fg]))
 
 (defn- temp-git-repo! []
-  (let [dir (.toFile (Files/createTempDirectory "kotoba-ledger-test" (make-array FileAttribute 0)))]
+  (let [dir (io/temp-dir "kotoba-ledger-test")]
     (let [pb (ProcessBuilder. ["git" "init" "-q"])]
       (.directory pb dir)
       (.waitFor (.start pb)))
