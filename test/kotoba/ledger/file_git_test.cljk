@@ -1,5 +1,5 @@
 (ns kotoba.ledger.file-git-test
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [clojure.java.io :as io]
             [kotoba.ledger.core :as ledger]
             [kotoba.ledger.file-git :as fg])
