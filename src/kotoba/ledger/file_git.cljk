@@ -4,7 +4,7 @@
   stated 'one decision = one git commit' design. Fills the gap where
   manimani's babashka runner path appends to disk but never commits (only
   its TypeScript server path shells out to git)."
-  (:require [clojure.java.io :as io]
+  (:require [kotoba.io :as io]
             [kotoba.ledger.core :as ledger]))
 
 #?(:clj
@@ -20,7 +20,7 @@
 #?(:clj
 (defn read-events
   [path]
-  (if (.exists (io/file (str path)))
+  (if (io/exists? (io/file (str path)))
     (ledger/parse-jsonl (slurp (str path)))
     [])))
 
